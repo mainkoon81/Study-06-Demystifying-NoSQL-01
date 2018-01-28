@@ -9,10 +9,8 @@
 
 #### Contents
    - Study 1: Data Extraction Fundamentals
-     - Assessing the Quality of Data
-     - Intro to Tabular Formats
-     - Parsing CSV
-     - Parsing XLS with XLRD
+     - 1.Parsing CSV
+     - 2.Parsing XLS with XLRD
      - Intro to JSON
      - Using Web APIs
    - Study 2: Data in More Complex Formats
@@ -51,6 +49,7 @@
      - Open Street Map XML Overview
      - Exercises around OpenStreetMap data
 
+### Study 1: Data Extraction Fundamentals
 ### 1> Simple format: csv
  - package: `csv`
  - topic: A common way to distribute **tabular data**(table) is in a format called 'CSV'.
@@ -174,7 +173,7 @@ if __name__ == '__main__':
 <img src="https://user-images.githubusercontent.com/31917400/35486480-9d934562-0466-11e8-9b29-83977bc9b446.jpg" width="650" height="90" />
 
 ### 2> Simple format: XLS
- - package: `XLRD`
+ - package: `xlrd`
  - topic: 
 
 
