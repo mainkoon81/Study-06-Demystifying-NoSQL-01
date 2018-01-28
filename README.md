@@ -1,17 +1,17 @@
 # Data Wrangling with MongoDB
 #### Datasets
- - ERCOT data files: http://www.ercot.com/gridinfo/load/load_hist/
+ - ERCOT(Electric Reliability Council of Texas) data files: http://www.ercot.com/gridinfo/load/load_hist/
  - Musicbrainz JSON files: https://musicbrainz.org/doc/Development/JSON_Web_Service
  - TranStats Flight Data site: https://www.transtats.bts.gov/Data_Elements.aspx?Data=2
  - OpenStreetMap data: http://www.openstreetmap.org/#map=6/53.464/-8.218, https://mapzen.com/data/metro-extracts/metro/chicago_illinois/85940195/Chicago/, https://mapzen.com/data/metro-extracts/ 
 #### modules
  - pip install: requests xlutils beautifulsoup4 pymongo 
 
-#### Contents
+#### [Contents]
    - Study 1: Data Extraction Fundamentals
      - 1.Parsing CSV
-     - 2.Parsing XLS with XLRD
-     - Intro to JSON
+     - 2.Parsing XLS 
+     - 3.Intro to JSON
      - Using Web APIs
    - Study 2: Data in More Complex Formats
      - Intro to XML
@@ -52,7 +52,7 @@
 ### Study 1: Data Extraction Fundamentals
 ### 1> Simple format: csv
  - package: `csv`
- - topic: A common way to distribute **tabular data**(table) is in a format called 'CSV'.
+ - A common way to distribute **tabular data**(table) is in a format called 'CSV'.
 <img src="https://user-images.githubusercontent.com/31917400/35482887-3d8fdaf0-0433-11e8-991c-c56e6af5647c.jpg" width="570" height="150" />
  
  - Parsing *huge..CSV file* in python (from csv to dict)
@@ -174,8 +174,23 @@ if __name__ == '__main__':
 
 ### 2> Simple format: XLS
  - package: `xlrd`
- - topic: 
+ - It allows us to work with excel files whether it's old 'xls' format or new 'xlsx' format. 
+ - `xlrd.open_workbook()`
+ - Parsing *huge..xls or xlsx file* in python 
+   - Q.Let's read through the xls file, and report some information.
+     - 
+     -
+     -
+     -
+     - timestamps
+     - min, max, avg values in 'coast' field 
  
+```
+import xlrd
+
+datafile = "C:/Users/Minkun/Desktop/classes_1/NanoDeg/1.Data_AN/L5_DATABASE/data/2013_ERCOT_Hourly_Load_Data.xls"
+```
+>Write my function 
 
 
 
