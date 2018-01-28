@@ -87,8 +87,8 @@ def test():
 test()
 ```
 
- - QUESTION ! : Each Field is limited by ',' in a csv file. 
- ### what if there are 'multiple values'(comma-contained) within a single field ?
+ >QUESTION ? : We know 'each field' is limited by ',' in a csv file. 
+ ## What if there are 'multiple values'(comma-contained) within a single field ?
  
  
 
