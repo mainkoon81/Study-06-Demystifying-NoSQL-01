@@ -1,10 +1,62 @@
 # Data Wrangling with MongoDB
+#### Datasets
+ - ERCOT data files: http://www.ercot.com/gridinfo/load/load_hist/
+ - Musicbrainz JSON files: https://musicbrainz.org/doc/Development/JSON_Web_Service
+ - TranStats Flight Data site: https://www.transtats.bts.gov/Data_Elements.aspx?Data=2
+ - OpenStreetMap data: http://www.openstreetmap.org/#map=6/53.464/-8.218, https://mapzen.com/data/metro-extracts/metro/chicago_illinois/85940195/Chicago/, https://mapzen.com/data/metro-extracts/ 
+#### modules
+ - pip install: requests xlutils beautifulsoup4 pymongo 
 
-### 1. format
- - A common way to distribute **tabular data**(table) is in a format called 'CSV'.
+#### Contents
+   - Study 1: Data Extraction Fundamentals
+     - Assessing the Quality of Data
+     - Intro to Tabular Formats
+     - Parsing CSV
+     - Parsing XLS with XLRD
+     - Intro to JSON
+     - Using Web APIs
+   - Study 2: Data in More Complex Formats
+     - Intro to XML
+     - XML Design Principles
+     - Parsing XML
+     - Web Scraping
+     - Parsing HTML
+   - Study 3: Data Quality
+     - What is Data Cleaning?
+     - Sources of Dirty Data
+     - Measuring Data Quality
+     - A Blueprint for Cleaning
+     - Auditing Validity
+     - Auditing Accuracy
+     - Auditing Completeness
+     - Auditing Consistency
+     - Auditing Uniformity
+   - Study 4: Working with MongoDB
+     - Data Modeling in MongoDB
+     - Introduction to PyMongo
+     - Field Queries
+     - Projection Queries
+     - Getting Data into MongoDB
+     - Using mongoimport
+     - Operators like $gt, $lt, $exists, $regex
+     - Querying Arrays and using $in and $all Operators
+     - Changing entries: $update, $set, $unset
+   - Study 5: Analyzing Data
+     - Examples of Aggregation Framework
+     - The Aggregation Pipeline
+     - Aggregation Operators: $match, $project, $unwind, $group
+     - Multiple Stages Using a Given Operator
+   - Study 6: Case Study - OpenStreetMap Data
+     - Using iterative parsing for large data files
+     - Open Street Map XML Overview
+     - Exercises around OpenStreetMap data
+
+### 1> Simple format: csv
+ - package: `csv`
+ - topic: A common way to distribute **tabular data**(table) is in a format called 'CSV'.
 <img src="https://user-images.githubusercontent.com/31917400/35482887-3d8fdaf0-0433-11e8-991c-c56e6af5647c.jpg" width="570" height="150" />
  
- - Parsing *huge..CSV file* in python (csv to dict)
+ - Parsing *huge..CSV file* in python (from csv to dict)
    - Q.Let's creat 'one dictionary' for each item(row) in the file. Parse only first ten lines in the file.
 ## Ultimately, we want a **list** where each element is a 'dictionary'. 
 >Preparing data importing for later and preparing debugging my function. 
@@ -121,6 +173,9 @@ if __name__ == '__main__':
 ```
 <img src="https://user-images.githubusercontent.com/31917400/35486480-9d934562-0466-11e8-9b29-83977bc9b446.jpg" width="650" height="90" />
 
+### 2> Simple format: XLS
+ - package: `XLRD`
+ - topic: 
 
 
 
