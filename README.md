@@ -39,7 +39,7 @@ def parse_file(datafile):
 
 >Write my function - step 2.
  - Here, row[0] is not the first list, but the first element of each list ! And these would become each value of the dictionary later on. Then we need to match those values with their keys (headers).
- - This means we need to control the iteration of entire single cycles. 
+ - This means we need to control the iteration of entire single cycles. (n=0 ~ n+=1)
 ```
 def parse_file(datafile):
 
