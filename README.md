@@ -64,11 +64,10 @@ def parse_file(datafile):
             data.append(entry)
             
             n += 1
-                #print(i, value)
                 
     return data[0], data[9] 
 ```
-<img src="https://user-images.githubusercontent.com/31917400/35485944-97ed7554-045e-11e8-99e1-f42db0ccf3fb.jpg" width="570" height="100" />
+<img src="https://user-images.githubusercontent.com/31917400/35485944-97ed7554-045e-11e8-99e1-f42db0ccf3fb.jpg" width="600" height="200" />
 
 Testing my function
 ```
