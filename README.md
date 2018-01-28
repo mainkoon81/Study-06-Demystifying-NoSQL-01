@@ -27,7 +27,7 @@ def parse_file(datafile):
         
         # Get header names        
         header = f.readline().split(',')
-        # Cannot read the headers of 'f', using 'enumerate()' method ??????
+        # reading headers of 'f' can only be done using 'readline()' ? 
         
         # Loop through all lines in the file 
         for i, line in enumerate(f, start = 0):
