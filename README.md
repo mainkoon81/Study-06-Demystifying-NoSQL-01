@@ -7,7 +7,7 @@
  - Parsing *huge..CSV file* in python (csv to dict)
    - Q.Let's creat 'one dictionary' for each item(row) in the file. Parse only first ten lines in the file.
 
-Preparing data importing for later and preparing debugging of my function 
+Preparing data importing for later and preparing debugging my function. 
 ```
 import os
 DATADIR = "C:/Users/Minkun/Desktop/classes_1/NanoDeg/1.Data_AN/L5_DATABASE/data"
@@ -40,10 +40,40 @@ def parse_file(datafile):
 <img src="https://user-images.githubusercontent.com/31917400/35484401-428f74d4-0447-11e8-8f71-c72e50cdea4d.jpg" width="570" height="100" />
 
 Write my function - step 2.
- - Here, row[0] is not the first list, but the first element of each list ! 
- - 
+ - Here, row[0] is not the first list, but the first element of each list ! And these would become each value of the dictionary later on. Then we need to match those values with their keys (headers).
+ - This means we need to control the iteration of entire single cycles. 
+```
+def parse_file(datafile):
+    data = []
+    with open(datafile, "r") as f:
+        header = f.readline().split(',')
+        
+        n = 0
+        
+        for i in f:
+            if n == 10:
+                break
+            row = i.split(',')  
+            
+            # initialise dictionary to store one line and match each colname and each value..
+            entry = {}
+            for j, value in enumerate(row, start = 0):
+                entry[header[j].strip()] = value.strip() # matching keys and values, thus creating a dict # string method 'strip()' will come in handy to get rid of the extra whitespace (that includes newline character at the end of line)
+            
+            #append the dictionary to target list
+            data.append(entry)
+            
+            n += 1
+                #print(i, value)
+                
+    return data[0], data[9] 
+```
+<img src="https://user-images.githubusercontent.com/31917400/35485944-97ed7554-045e-11e8-99e1-f42db0ccf3fb.jpg" width="570" height="100" />
 
+Testing my function
+```
 
+```
 
 
 
