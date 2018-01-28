@@ -25,17 +25,16 @@ def parse_file(datafile):
     data = []
     with open(datafile, "r") as f:
         
-        # Get header names        
+        ##### Get header names. Reading headers of 'f' can only be done using 'readline()' ? #####
         header = f.readline().split(',')
-        # reading headers of 'f' can only be done using 'readline()' ? 
         
-        # Loop through all lines in the file 
+        ##### Loop through all lines in the file #####
         for i, line in enumerate(f, start = 0):
-            # only take first ten rows (ie. i == 0 to 9)
+            ##### only take first ten rows (ie. i == 0 to 9) #####
             if i == 10:
                 break
-            row = line.split(',') # parse individual line
-            print(row)   # we can see 'row' is an bunch of lists !
+            row = line.split(',') ##### parse individual line #####
+            print(row)   ##### we can see 'row' is a bunch of lists ! #####
 ```
 <img src="https://user-images.githubusercontent.com/31917400/35484401-428f74d4-0447-11e8-8f71-c72e50cdea4d.jpg" width="570" height="100" />
 
@@ -55,19 +54,19 @@ def parse_file(datafile):
                 break
             row = i.split(',')  
             
-            # initialise dictionary to store one line and match each colname and each value..
+            ##### initialise dictionary to store one line and match each colname and each value.. #####
             entry = {}
             for j, value in enumerate(row, start = 0):
-                entry[header[j].strip()] = value.strip() # matching keys and values, thus creating a dict # string method 'strip()' will come in handy to get rid of the extra whitespace (that includes newline character at the end of line)
+                entry[header[j].strip()] = value.strip()  ##### matching keys and values, thus creating a dict # string method 'strip()' will come in handy to get rid of the extra whitespace (that includes newline character at the end of line)
             
-            #append the dictionary to target list
+            ##### append the dictionary to target list #####
             data.append(entry)
             
             n += 1
                 
     return data[0], data[9] 
 ```
-<img src="https://user-images.githubusercontent.com/31917400/35485944-97ed7554-045e-11e8-99e1-f42db0ccf3fb.jpg" width="600" height="200" />
+<img src="https://user-images.githubusercontent.com/31917400/35485944-97ed7554-045e-11e8-99e1-f42db0ccf3fb.jpg" width="650" height="180" />
 
 Testing my function
 ```
