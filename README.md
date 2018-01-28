@@ -7,7 +7,7 @@
  - Parsing *huge..CSV file* in python (csv to dict)
    - Q.Let's creat 'one dictionary' for each item(row) in the file. Parse only first ten lines in the file.
 
-Preparing data importing for later and preparing debugging my function. 
+>Preparing data importing for later and preparing debugging my function. 
 ```
 import os
 DATADIR = "C:/Users/Minkun/Desktop/classes_1/NanoDeg/1.Data_AN/L5_DATABASE/data"
@@ -16,7 +16,7 @@ DATAFILE = "beatles-diskography.csv"
 datafile = os.path.join(DATADIR, DATAFILE)
 parse_file(datafile)
 ```
-Write my function - step 1. 
+>Write my function - step 1. 
  - FYI, this is the header 
 <img src="https://user-images.githubusercontent.com/31917400/35484456-e869ba22-0447-11e8-8dbb-a47d159663a2.jpg" width="650" height="25" /> 
 
@@ -37,7 +37,7 @@ def parse_file(datafile):
 ```
 <img src="https://user-images.githubusercontent.com/31917400/35484401-428f74d4-0447-11e8-8f71-c72e50cdea4d.jpg" width="570" height="100" />
 
-Write my function - step 2.
+>Write my function - step 2.
  - Here, row[0] is not the first list, but the first element of each list ! And these would become each value of the dictionary later on. Then we need to match those values with their keys (headers).
  - This means we need to control the iteration of entire single cycles. 
  - Ultimately, we want a **list** whose each element is a 'dictionary'. 
@@ -70,7 +70,7 @@ def parse_file(datafile):
 ```
 <img src="https://user-images.githubusercontent.com/31917400/35485944-97ed7554-045e-11e8-99e1-f42db0ccf3fb.jpg" width="650" height="180" />
 
-Test of my implemetation
+>Test of my implemetation
 ```
 def test():
     datafile = os.path.join(DATADIR, DATAFILE)
@@ -87,9 +87,10 @@ def test():
 test()
 ```
 
- >QUESTION ? : We know 'each field' is limited by ',' in a csv file. 
- ## What if there are 'multiple values'(comma-contained) within a single field ?
+>QUESTION ? We know 'each field' is limited by ',' in a csv file. What if two values are enclosed in a quote ? 
+## VARIATION: What if there are 'multiple values'(comma-contained) within a single field ?
  
+That is where `'CSV' module` comes in. It deals with csv format in a complete way! 
  
 
 
