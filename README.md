@@ -40,7 +40,8 @@ def parse_file(datafile):
 <img src="https://user-images.githubusercontent.com/31917400/35484401-428f74d4-0447-11e8-8f71-c72e50cdea4d.jpg" width="570" height="100" />
 
 Write my function - step 2.
-
+ - Here, row[0] is not the first list, but the first element of each list ! 
+ - 
 
 
 
