@@ -40,6 +40,7 @@ def parse_file(datafile):
 Write my function - step 2.
  - Here, row[0] is not the first list, but the first element of each list ! And these would become each value of the dictionary later on. Then we need to match those values with their keys (headers).
  - This means we need to control the iteration of entire single cycles. 
+ - Ultimately, we want a list whose each element is a 'dictionary'. 
 ```
 def parse_file(datafile):
 
@@ -69,9 +70,21 @@ def parse_file(datafile):
 ```
 <img src="https://user-images.githubusercontent.com/31917400/35485944-97ed7554-045e-11e8-99e1-f42db0ccf3fb.jpg" width="650" height="180" />
 
-Testing my function
+Test of my implemetation
 ```
+def test():
+    datafile = os.path.join(DATADIR, DATAFILE)
+    d = parse_file(datafile)
+    
+    firstline = {'Title': 'Please Please Me', 'UK Chart Position': '1', 'Label': 'Parlophone(UK)', 'Released': '22 March 1963', 'US Chart Position': '-', 'RIAA Certification': 'Platinum', 'BPI Certification': 'Gold'}
+    tenthline = {'Title': '', 'UK Chart Position': '1', 'Label': 'Parlophone(UK)', 'Released': '10 July 1964', 'US Chart Position': '-', 'RIAA Certification': '', 'BPI Certification': 'Gold'}
 
+    assert (d[0]) == firstline
+    assert (d[9]) == tenthline
+
+    return True
+
+test()
 ```
 
 
