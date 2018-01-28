@@ -56,9 +56,9 @@ def parse_file(datafile):
             row = i.split(',')  
             
             ##### initialise dictionary to store one line and match each colname and each value.. #####
-            entry = {}
+            entry_dic = {}
             for j, value in enumerate(row, start = 0):
-                entry[header[j].strip()] = value.strip()  ##### matching keys and values, thus creating a dict # string method 'strip()' will come in handy to get rid of the extra whitespace (that includes newline character at the end of line)
+                entry_dic[header[j].strip()] = value.strip()  ##### matching keys and values, thus creating a dict # string method 'strip()' will come in handy to get rid of the extra whitespace (that includes newline character at the end of line)
             
             ##### append the dictionary to target list #####
             data.append(entry)
