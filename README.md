@@ -6,7 +6,7 @@
  
  - Parsing *huge..CSV file* in python (csv to dict)
    - Q.Let's creat 'one dictionary' for each item(row) in the file. Parse only first ten lines in the file.
-## Ultimately, we want a **list** whose each element is a 'dictionary'. 
+## Ultimately, we want a **list** where each element is a 'dictionary'. 
 >Preparing data importing for later and preparing debugging my function. 
 ```
 import os
