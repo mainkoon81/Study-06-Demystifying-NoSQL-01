@@ -22,7 +22,6 @@ Write my function - step 1.
 
 ```
 def parse_file(datafile):
-    data = []
     with open(datafile, "r") as f:
         
         ##### Get header names. Reading headers of 'f' can only be done using 'readline()' ? #####
@@ -43,7 +42,9 @@ Write my function - step 2.
  - This means we need to control the iteration of entire single cycles. 
 ```
 def parse_file(datafile):
+
     data = []
+    
     with open(datafile, "r") as f:
         header = f.readline().split(',')
         
