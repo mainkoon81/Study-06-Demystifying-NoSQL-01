@@ -40,7 +40,7 @@ def parse_file(datafile):
 Write my function - step 2.
  - Here, row[0] is not the first list, but the first element of each list ! And these would become each value of the dictionary later on. Then we need to match those values with their keys (headers).
  - This means we need to control the iteration of entire single cycles. 
- - Ultimately, we want a list whose each element is a 'dictionary'. 
+ - Ultimately, we want a **list** whose each element is a 'dictionary'. 
 ```
 def parse_file(datafile):
 
@@ -87,6 +87,10 @@ def test():
 test()
 ```
 
+ - QUESTION ! : Each Field is limited by ',' in a csv file. 
+ ### what if there are 'multiple values'(comma-contained) within a single field ?
+ 
+ 
 
 
 
