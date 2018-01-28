@@ -90,10 +90,39 @@ test()
 >QUESTION ? We know 'each field' is limited by ',' in a csv file. What if two values are enclosed in a quote ? 
 ## VARIATION: What if there are 'multiple values'(comma-contained) within a single field ?
  
-That is where `'CSV' module` comes in. It deals with csv format in a complete way! 
- 
+That is where `'CSV' module` comes in. It deals with csv format in a complete way! --- `csv.DictReader()`
+ - Read all our data into dictionaries ! (all individual element becomes a dict) 
+ - it automatically assumes, the first row of whatever file we read, is actually a header row and those are names we want to use for fields.
+ - it automatically handles quote char ('ad'), quoted field ('ad,bd') 
+```
+import os
+import pprint
+import csv
+
+DATADIR = "C:/Users/Minkun/Desktop/classes_1/NanoDeg/1.Data_AN/L5_DATABASE/data"
+DATAFILE = "beatles-diskography.csv"
 
 
+
+def parse_csv(datafile):
+    
+    data = []
+    n = 0
+    
+    with open(datafile, 'r') as f:
+        book = csv.DictReader(f)
+        for i in book:
+            data.append(i)
+    return(data)
+```
+print the 10th row !
+```
+if __name__ == '__main__':
+    datafile = os.path.join(DATADIR, DATAFILE)
+    d = parse_csv(datafile)
+    pprint.pprint(d[9])
+```
+<img src="https://user-images.githubusercontent.com/31917400/35486480-9d934562-0466-11e8-9b29-83977bc9b446.jpg" width="650" height="90" />
 
 
 
