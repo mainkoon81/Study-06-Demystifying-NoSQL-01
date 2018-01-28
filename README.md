@@ -93,7 +93,8 @@ test()
 That is where `'CSV' module` comes in. It deals with csv format in a complete way! --- `csv.DictReader()`
  - Read all our data into dictionaries ! (all individual element becomes a dict) 
  - it automatically assumes, the first row of whatever file we read, is actually a header row and those are names we want to use for fields.
- - it automatically handles quote char ('ad'), quoted field ('ad,bd') 
+ - it automatically handles quote char ('ad'), quoted field ('ad,bd'), and so on.
+ - No need to control the iteration ? 
 ```
 import os
 import pprint
@@ -102,12 +103,9 @@ import csv
 DATADIR = "C:/Users/Minkun/Desktop/classes_1/NanoDeg/1.Data_AN/L5_DATABASE/data"
 DATAFILE = "beatles-diskography.csv"
 
-
-
 def parse_csv(datafile):
     
     data = []
-    n = 0
     
     with open(datafile, 'r') as f:
         book = csv.DictReader(f)
