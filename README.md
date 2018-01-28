@@ -6,7 +6,7 @@
  
  - Parsing *huge..CSV file* in python (csv to dict)
    - Q.Let's creat 'one dictionary' for each item(row) in the file. Parse only first ten lines in the file.
-
+## Ultimately, we want a **list** whose each element is a 'dictionary'. 
 >Preparing data importing for later and preparing debugging my function. 
 ```
 import os
@@ -40,7 +40,6 @@ def parse_file(datafile):
 >Write my function - step 2.
  - Here, row[0] is not the first list, but the first element of each list ! And these would become each value of the dictionary later on. Then we need to match those values with their keys (headers).
  - This means we need to control the iteration of entire single cycles. 
- - Ultimately, we want a **list** whose each element is a 'dictionary'. 
 ```
 def parse_file(datafile):
 
@@ -94,7 +93,7 @@ That is where `'CSV' module` comes in. It deals with csv format in a complete wa
  - Read all our data into dictionaries ! (all individual element becomes a dict) 
  - it automatically assumes, the first row of whatever file we read, is actually a header row and those are names we want to use for fields.
  - it automatically handles quote char ('ad'), quoted field ('ad,bd'), and so on.
- - No need to control the iteration ? 
+ - No need to control the iteration ? No need to care headers ?
 ```
 import os
 import pprint
