@@ -34,7 +34,7 @@ def parse_file(datafile):
             if i == 10:
                 break
             row = line.split(',') ##### parse individual line #####
-            print(row)   ##### we can see 'row' is a bunch of lists ! #####
+            print(row)   ##### we can see 'row' is a bunch of lists(individual lines) ! #####
 ```
 <img src="https://user-images.githubusercontent.com/31917400/35484401-428f74d4-0447-11e8-8f71-c72e50cdea4d.jpg" width="570" height="100" />
 
