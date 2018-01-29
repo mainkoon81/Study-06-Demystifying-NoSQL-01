@@ -187,13 +187,11 @@ if __name__ == '__main__':
      - datatype of the value in (row:1, column:0) -- datetime, using`.cell_type(row, col)`
      - the datetime value in excel format, using`.cell_value(row, col)` 
      - convert the datetime value in excel-format to the datetime value in python-format, using`xlrd.xldate_as_tuple(val, 0)`
-     - *the min, max and average values for the COAST field
-     - *the time value (as Python tuples) for the min and max entries above
-     - 
 ```
 import xlrd
+import pprint
 
-datafile = "C:/Users/Minkun/Desktop/classes_1/NanoDeg/1.Data_AN/L5_DATABASE/data/2013_ERCOT_Hourly_Load_Data.xls"
+DATAFILE = "C:/Users/Minkun/Desktop/classes_1/NanoDeg/1.Data_AN/L5_DATABASE/data/2013_ERCOT_Hourly_Load_Data.xls"
 ```
 >Write my function - step 1.
 ```
@@ -236,16 +234,58 @@ def parse_file(datafile):
     
     return (data)
 
-data = parse_file(datafile)
+datafinal = parse_file(DATAFILE)
 ```
 <img src="https://user-images.githubusercontent.com/31917400/35488994-c7f56336-0488-11e8-9321-ee8aa65eb338.jpg" width="750" height="190" />
 
 >Write my function - step 2.
+ - *the min, max and average values for the COAST field
+ - *the datetime value (as Python tuples) for the min and max entries above
 ```
+def parse_file(datafile):
+    workbook = xlrd.open_workbook(datafile)
+    sheet = workbook.sheet_by_index(0)  # which excel sheet to work with ? ==> 'sheet_0' 
+    
+    colvl = sheet.col_values(1, start_rowx=0, end_rowx=None)
+    
+    #print(colvl) ## Damn..it contains 'column name - 'COAST'
+    
+    maxvl = max(colvl[1:])
+    minvl = min(colvl[1:])
+    avgvl = sum(colvl[1:]) / float(len(colvl[1:]))
+    #import numpy as np
+    #avgvl = np.mean(colvl)
+    
+    maxpos = colvl.index(maxvl) + 1
+    minpos = colvl.index(minvl) + 1
+    
+    maxtime = sheet.cell_value(maxpos, 0)
+    mintime = sheet.cell_value(minpos, 0)
+    
+    c_maxtime = xlrd.xldate_as_tuple(maxtime, 0)
+    c_mintime = xlrd.xldate_as_tuple(mintime, 0)
 
+    data = {
+            'maxtime': c_maxtime,
+            'maxvalue': maxvl,
+            'mintime': c_mintime,
+            'minvalue': minvl,
+            'avgcoast': avgvl
+    }
+    return (data)
 ```
+```
+def test():
+    datafinal = parse_file(DATAFILE)
+    pprint.pprint(datafinal)
 
+    assert datafinal['maxtime'] == (2013, 8, 13, 18, 0, 0)
+    assert round(datafinal['maxvalue'], 10) == round(18779.02551, 10)
+    return True
 
+test()
+```
+<img src="https://user-images.githubusercontent.com/31917400/35490372-2161d194-0497-11e8-8d2e-e9824ba51f7d.jpg" width="750" height="70" />
 
 
 
