@@ -9,18 +9,18 @@
  - pip install: requests xlutils beautifulsoup4 pymongo 
 
 #### [Contents]
-   - Study 1: Data Extraction Fundamentals
+   - __Study 1: Data Extraction Fundamentals__
      - 1.Parsing CSV
      - 2.Parsing XLS 
-     - 3.Intro to JSON
+     - 3.Data Modeling in JSON
      - Using Web APIs
-   - Study 2: Data in More Complex Formats
+   - __Study 2: Data in More Complex Formats__
      - Intro to XML
      - XML Design Principles
      - Parsing XML
      - Web Scraping
      - Parsing HTML
-   - Study 3: Data Quality
+   - __Study 3: Data Quality__
      - What is Data Cleaning?
      - Sources of Dirty Data
      - Measuring Data Quality
@@ -30,7 +30,7 @@
      - Auditing Completeness
      - Auditing Consistency
      - Auditing Uniformity
-   - Study 4: Working with MongoDB
+   - __Study 4: Working with MongoDB__
      - Data Modeling in MongoDB
      - Introduction to PyMongo
      - Field Queries
@@ -40,12 +40,12 @@
      - Operators like $gt, $lt, $exists, $regex
      - Querying Arrays and using $in and $all Operators
      - Changing entries: $update, $set, $unset
-   - Study 5: Analyzing Data
+   - __Study 5: Analyzing Data__
      - Examples of Aggregation Framework
      - The Aggregation Pipeline
      - Aggregation Operators: $match, $project, $unwind, $group
      - Multiple Stages Using a Given Operator
-   - Study 6: Case Study - OpenStreetMap Data
+   - __Study 6: Case Study - OpenStreetMap Data__
      - Using iterative parsing for large data files
      - Open Street Map XML Overview
      - Exercises around OpenStreetMap data
@@ -290,7 +290,7 @@ test()
 ```
 <img src="https://user-images.githubusercontent.com/31917400/35490372-2161d194-0497-11e8-8d2e-e9824ba51f7d.jpg" width="750" height="70" />
 
-### 3. Data Modeling in JSON
+### 3> Data Modeling in JSON
  - When web-scrapping, we want to represent data in a tabular form. **JSON** emerges for modeling data and as a means of trasmitting data b/w systems.
  - When exchanging data between a browser and a server, the data can only be text. **JSON is text**, and we can convert any JavaScript object into JSON, and send JSON to the server. We can also convert any JSON received from the server into JavaScript objects. This way we can work with the data as JavaScript objects, with no complicated parsing and translations. JSON uses JavaScript syntax, but the JSON format is text only. 
  - JSON object is like python dictionaries. 
