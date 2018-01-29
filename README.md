@@ -178,13 +178,18 @@ if __name__ == '__main__':
  - `xlrd.open_workbook()`
  - Parsing *huge..xls or xlsx file* in python 
    - Q.Let's read through the xls file, and report some information.
+     - The value in (row:3, column:2), using 'indexing'
+     - All values in row:50, using 'for loop'
+     - n of rows, using`.nrows`
+     - datatype of the value in (row:3, column:2) -- float, using`.cell_type(row, col)`
+     - The value in (row:3, column:2)--using`.cell_value(row,col)`
+     - A slice of values in (row:1~3, col:3), using`.col_values(col, start_rowx, end_rowx)`
+     - datatype of the value in (row:1, column:0) -- datetime, using`.cell_type(row, col)`
+     - the datetime value in excel format, using`.cell_value(row, col)` 
+     - convert the datetime value in excel-format to the datetime value in python-format, using`xlrd.xldate_as_tuple(val, 0)`
+     - *the min, max and average values for the COAST field
+     - *the time value (as Python tuples) for the min and max entries above
      - 
-     -
-     -
-     -
-     - timestamps
-     - min, max, avg values in 'coast' field 
- 
 ```
 import xlrd
 
@@ -196,9 +201,9 @@ def parse_file(datafile):
     workbook = xlrd.open_workbook(datafile)
     sheet = workbook.sheet_by_index(0)  ## which excel sheet to work with ? ==> 'sheet_0' ##
 
-    data = [[sheet.cell_value(r, col) 
+    data = [[sheet.cell_value(row, col) 
                 for col in range(sheet.ncols)] 
-                    for r in range(sheet.nrows)]  ## read all our xls data into 'python list'. ##
+                    for row in range(sheet.nrows)]  ## read all our xls data into 'python list'. ##
 
     print ("\nList Comprehension") 
     print ("data[3][2]:"),
@@ -209,11 +214,11 @@ def parse_file(datafile):
         for col in range(sheet.ncols):
             if row == 50:
                 print (sheet.cell_value(row, col)),
-                ## looping through entiresheet one row at a time, then moving across the cols. the value of 50th row. ##
+                ## looping through entire sheet one row at a time, then moving across the cols. the value of 50th row. ##
                 ## FYI, the 0th row is the header. ##
 
-    ## other useful methods:
     print ("\nROWS, COLUMNS, and CELLS:")
+    
     print ("Number of rows in the sheet:"), print (sheet.nrows)
     
     print ("Type of data in cell (row 3, col 2):"), print (sheet.cell_type(3, 2))
@@ -225,10 +230,8 @@ def parse_file(datafile):
 
     print ("\nDATES:")
     print ("Type of data in cell (row 1, col 0):"), print (sheet.cell_type(1, 0))
-    
+    print ("Time in Excel format:"), print (sheet.cell_value(1, 0))   ## datetime value in 'excel format' ##
     exceltime = sheet.cell_value(1, 0)
-    print ("Time in Excel format:"), print (exceltime) # datetime value in 'excel format' so needed to be in 'python format'. 
-    
     print ("Convert time to a Python datetime tuple, from the Excel float:"), print (xlrd.xldate_as_tuple(exceltime, 0))
     
     return (data)
