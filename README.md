@@ -1,5 +1,6 @@
 # Data Wrangling with MongoDB
 #### Datasets
+ - Beatles Discography data: https://en.wikipedia.org/wiki/The_Beatles_discography
  - ERCOT(Electric Reliability Council of Texas) data files: http://www.ercot.com/gridinfo/load/load_hist/
  - Musicbrainz JSON files: https://musicbrainz.org/doc/Development/JSON_Web_Service
  - TranStats Flight Data site: https://www.transtats.bts.gov/Data_Elements.aspx?Data=2
@@ -289,8 +290,44 @@ test()
 ```
 <img src="https://user-images.githubusercontent.com/31917400/35490372-2161d194-0497-11e8-8d2e-e9824ba51f7d.jpg" width="750" height="70" />
 
-
-
+### 3. Data Modeling in JSON
+ - When web-scrapping, we want to represent data in a tabular form. **JSON** emerges for modeling data and as a means of trasmitting data b/w systems.
+ - When exchanging data between a browser and a server, the data can only be text. **JSON is text**, and we can convert any JavaScript object into JSON, and send JSON to the server. We can also convert any JSON received from the server into JavaScript objects. This way we can work with the data as JavaScript objects, with no complicated parsing and translations. JSON uses JavaScript syntax, but the JSON format is text only. 
+ - JSON object is like python dictionaries. 
+   - Items may have different fields, nested objects, nested arrays(Json obj, individual value, other array), etc.
+   - Note that **JSON arrays** are interpreted as lists and JSON objects as dictionaries, so you can use the standard Python approaches to inspect JSON data. 
+   - `JSON.parse()`: JavaScript has a built in function to convert a 'string', written in JSON format, into native 'JavaScript objects'.
+   - `JSON.stringfy()`: 
+ - Sending data (convert the JavaScript object into **JSON** string)
+```
+<script>
+var myObj = { "name":"John", "age":31, "city":"New York" };
+var myJSON = JSON.stringify(myObj);
+window.location = "demo_json.php?x=" + myJSON;
+</script>
+```
+ - Receiving data (convert it into a **JavaScript object**) 
+```
+<script>
+var myJSON = '{ "name":"John", "age":31, "city":"New York" }';
+var myObj = JSON.parse(myJSON);
+document.getElementById("demo").innerHTML = myObj.name;
+</script>
+```
+ - Storing data (store JavaScript objects as **text** string)
+```
+<script>
+myObj = { "name":"John", "age":31, "city":"New York" };
+myJSON = JSON.stringify(myObj);
+localStorage.setItem("testJSON", myJSON);
+```
+ - Retrieving data (retrieve and convert from JSON text to **JavaScript object**)
+```
+text = localStorage.getItem("testJSON");
+obj = JSON.parse(text);
+document.getElementById("demo").innerHTML = obj.name;
+</script>
+```
 
 
 
