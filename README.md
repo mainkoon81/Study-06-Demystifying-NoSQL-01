@@ -328,8 +328,9 @@ obj = JSON.parse(text);
 document.getElementById("demo").innerHTML = obj.name;
 </script>
 ```
-'Web Service' is a database we can access using HTTP requests. With this, we can formulate queries as URLs. 
-
+>JSON from Web Service 
+ - 'Web Service' is a database we can access using HTTP requests. With this, we can formulate queries as URLs. 
+ - 
 
 
 
