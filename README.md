@@ -330,6 +330,7 @@ document.getElementById("demo").innerHTML = obj.name;
 ```
 >JSON from Web Service 
  - 'Web Service' is a database we can access using HTTP requests. With this, we can formulate queries as URLs. 
+ - MusicBrainz is an open music encyclopedia that collects music metadata and makes it available to the public.
  - 
 
 
