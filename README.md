@@ -12,10 +12,9 @@
    - __Study 1: Data Extraction Fundamentals__
      - 1.Parsing CSV
      - 2.Parsing XLS 
-     - 3.Data Modeling in JSON
-     - Using Web APIs
+     - 3.Parsing JSON, using API
    - __Study 2: Data in More Complex Formats__
-     - Intro to XML
+     - 1.Intro to XML
      - XML Design Principles
      - Parsing XML
      - Web Scraping
@@ -50,7 +49,7 @@
      - Open Street Map XML Overview
      - Exercises around OpenStreetMap data
 
-### Study 1: Data Extraction Fundamentals
+## Study 1: Data Extraction Fundamentals
 ### 1> Simple format: csv
  - package: `csv`
  - A common way to distribute **tabular data**(table) is in a format called 'CSV'.
@@ -290,7 +289,7 @@ test()
 ```
 <img src="https://user-images.githubusercontent.com/31917400/35490372-2161d194-0497-11e8-8d2e-e9824ba51f7d.jpg" width="750" height="70" />
 
-### 3> Data Modeling in JSON
+### 3> Simple format: JSON
  - When web-scrapping, we want to represent data in a tabular form. **JSON** emerges for modeling data and as a means of trasmitting data b/w systems.
  - When exchanging data between a browser and a server, the data can only be text. **JSON is text**, and we can convert any JavaScript object into JSON, and send JSON to the server. We can also convert any JSON received from the server into JavaScript objects. This way we can work with the data as JavaScript objects, with no complicated parsing and translations. JSON uses JavaScript syntax, but the JSON format is text only. 
  - JSON object is like python dictionaries. 
@@ -342,7 +341,7 @@ BASE_URL = "http://musicbrainz.org/ws/2/"
 ARTIST_URL = BASE_URL + "artist/"
 ```
  - Want to see how query parameter look like? the query parameters are given to `requests.get()` as a dictionary; this variable contains some starter parameters.
- - Write a main function for making queries to the musicbrainz API. The query should return a json document.
+ - Write a function for **making queries** to the musicbrainz **API**. The query should return a json document.
 ```
 query_type = {  "simple": {},
                 "atr": {"inc": "aliases+tags+ratings"},
@@ -373,7 +372,7 @@ def pretty_print(data, indent=4):
     else:
         print (data)
 ```
- - Query for information in the database about bands named Nirvana
+ - Query for information in the database about bands named 'Nirvana'
 ```
 results = query_by_name(ARTIST_URL, query_type["simple"], "Nirvana")
 pretty_print(results)
@@ -400,6 +399,7 @@ for t in release_titles:
     print (t)
 ```
 
+## Study 2: Data in More Complex Formats
 
 
 
