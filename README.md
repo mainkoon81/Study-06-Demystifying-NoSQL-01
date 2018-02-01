@@ -329,18 +329,76 @@ document.getElementById("demo").innerHTML = obj.name;
 </script>
 ```
 >JSON from Web Service 
- - 'Web Service' is a database we can access using HTTP requests. With this, we can formulate queries as URLs. With a web Service, we formulate queries as URLs. Let's se the example, using MusicBrainz.(Here no need for API key) 
+ - 'Web Service' is a database we can access using HTTP requests. With this, we can formulate queries as URLs. With a web Service, we **formulate queries as URLs**. Let's use the example, using MusicBrainz.(Here in this site, no need for API key) 
  - MusicBrainz is an open music encyclopedia that collects music metadata and makes it available to the public. This site maintains 'metadata' on music. By constructing URLs that has 'musicbrainz,org' as a base, specifying parameters or a particular entity such as a type_of_the_data we want to get back, we can query this site.   
 <img src="https://user-images.githubusercontent.com/31917400/35683971-605ec8a2-075d-11e8-81dd-4983bc50e95d.jpg" width="600" height="220" />
 
+ - When we issue the query, the response we get back is 'JSON data'. Then, using 'JSON module' in python, we can read in that data and it will be translated into the python objects(equivalent to dictionary). Now we practice how to access the data from the dict object. 
+```
+import json
+import requests
 
+BASE_URL = "http://musicbrainz.org/ws/2/"
+ARTIST_URL = BASE_URL + "artist/"
+```
+ - Want to see how query parameter look like? the query parameters are given to `requests.get()` as a dictionary; this variable contains some starter parameters.
+ - Write a main function for making queries to the musicbrainz API. The query should return a json document.
+```
+query_type = {  "simple": {},
+                "atr": {"inc": "aliases+tags+ratings"},
+                "aliases": {"inc": "aliases"},
+                "releases": {"inc": "releases"}}
 
+def query_site(url, params, uid="", fmt="json"):
+    params["fmt"] = fmt
+    r = requests.get(url + uid, params=params)
+    print ("requesting", r.url)
 
+    if r.status_code == requests.codes.ok:
+        return r.json()
+    else:
+        r.raise_for_status()
+```
+ - Write a function that adds an 'artist name' to the query parameters before making an API call to the function above.
+```
+def query_by_name(url, params, name):
+    params["query"] = "artist:" + name
+    return query_site(url, params)
+```
+ - Write a function to format it to be more readable after we get our output.
+```
+def pretty_print(data, indent=4):
+    if type(data) == dict:
+        print (json.dumps(data, indent=indent, sort_keys=True))
+    else:
+        print (data)
+```
+ - Query for information in the database about bands named Nirvana
+```
+results = query_by_name(ARTIST_URL, query_type["simple"], "Nirvana")
+pretty_print(results)
+```
+ - Isolate information from the 4th band returned (index 3)
+``` 
+print ("\nARTIST:")
+pretty_print(results["artists"][3])
+```
+ - Query for releases from that band using the 'artist_id'
+```
+artist_id = results["artists"][3]["id"]
+artist_data = query_site(ARTIST_URL, query_type["releases"], artist_id)
+releases = artist_data["releases"]
+```
+ - Print information about releases from the selected band
+```
+print ("\nONE RELEASE:")
+pretty_print(releases[0], indent=2)
 
-
-
-
-
+release_titles = [r["title"] for r in releases]
+print ("\nALL TITLES:")
+for t in release_titles:
+    print (t)
+```
 
 
 
