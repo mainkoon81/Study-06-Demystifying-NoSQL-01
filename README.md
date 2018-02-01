@@ -329,9 +329,9 @@ document.getElementById("demo").innerHTML = obj.name;
 </script>
 ```
 >JSON from Web Service 
- - 'Web Service' is a database we can access using HTTP requests. With this, we can formulate queries as URLs. 
- - MusicBrainz is an open music encyclopedia that collects music metadata and makes it available to the public.
- - 
+ - 'Web Service' is a database we can access using HTTP requests. With this, we can formulate queries as URLs. With a web Service, we formulate queries as URLs. Let's se the example, using MusicBrainz.(Here no need for API key) 
+ - MusicBrainz is an open music encyclopedia that collects music metadata and makes it available to the public. This site maintains 'metadata' on music. By constructing URLs that has 'musicbrainz,org' as a base, specifying parameters or a particular entity such as a type_of_the_data we want to get back, we can query this site.   
+<img src="https://user-images.githubusercontent.com/31917400/35683223-279937ac-075b-11e8-978c-8356c62efcfc.jpg" width="600" height="190" />
 
 
 
